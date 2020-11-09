@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
     const email = {
         to: process.env.TO_EMAIL_ADDRESS,
         from: process.env.FROM_EMAIL_ADDRESS,
-        subject: req.body.from + `${subject}`,
+        subject: fromAddress + ` ${subject}`,
         text: `${body}`,
         html: `${html}`,
     };
