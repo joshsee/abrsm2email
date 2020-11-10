@@ -12,6 +12,8 @@ module.exports = async (req, res) => {
     const body = req.body.text;
     const html = req.body.html;
 
+    console.log(req.body);
+
     // Strip for email 
     const fromAddress = addrs.parseOneAddress(from);
 
