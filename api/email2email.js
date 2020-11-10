@@ -3,6 +3,7 @@ const util = require('util');
 const multer = require('multer');
 const addrs = require("email-addresses");
 const sgMail = require('@sendgrid/mail');
+const sgParser = require('@sendgrid/inbound-mail-parser');
 
 module.exports = async (req, res) => { 
     await util.promisify(multer().any())(req, res);
@@ -27,6 +28,7 @@ module.exports = async (req, res) => {
         subject: `[`+ fromAddress + `] ${subject}`,
         text: `${body}`,
         html: `${html}`,
+        attachments: sgParser.createAttachment(sgParser.keyValues())
     };
 
     //Send Email
