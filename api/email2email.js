@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
         subject: `[`+ fromAddress + `] ${subject}`,
         text: `${body}`,
         html: `${html}`,
-        attachments: sgParser.createAttachment()
+        attachments: sgParser.attachments()
     };
 
     //Send Email
